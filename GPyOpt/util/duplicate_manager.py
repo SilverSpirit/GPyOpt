@@ -21,10 +21,10 @@ class DuplicateManager(object):
         self.unique_points = set()
         self.unique_points.update(tuple(x.flatten()) for x in zipped_X)
 
-        if np.any(pending_zipped_X):
+        if pending_zipped_X is not None and len(pending_zipped_X) > 0:
             self.unique_points.update(tuple(x.flatten()) for x in pending_zipped_X)
 
-        if np.any(ignored_zipped_X):
+        if ignored_zipped_X is not None and len(ignored_zipped_X) > 0:
             self.unique_points.update(tuple(x.flatten()) for x in ignored_zipped_X)
 
 
